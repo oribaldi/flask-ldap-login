@@ -119,9 +119,9 @@ class LDAPLoginManager(object):
 
         keymap = self.config.get('KEY_MAP')
         if keymap:
-            return {key:scalar(userobj.get(value)) for key, value in keymap.items() if _is_utf8(scalar(userobj.get(value))) }
+            return {key:scalar(userobj.get(value)) for key, value in keymap.items() }
         else:
-            return {key:scalar(value) for key, value in userobj.items() if _is_utf8(scalar(value)) }
+            return {key:scalar(value) for key, value in userobj.items()  }
 
     def save_user(self, callback):
         '''
