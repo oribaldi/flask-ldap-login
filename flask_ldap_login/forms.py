@@ -27,10 +27,10 @@ class LDAPLoginForm(Form):
             flash("Invalid LDAP credentials", 'danger')
             return False
         except ldap.LDAPError as err:
-            if isinstance(err.message, dict):
-                message = err.message.get('desc', str(err))
-            else:
-                message = str(err.message)
+            #if isinstance(err.msg, dict):
+            #    message = err.msg.get('desc', str(err))
+            #else:
+            message = str(err)
             flash(message, 'danger')
             return False
 
