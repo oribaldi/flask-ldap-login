@@ -241,7 +241,7 @@ class LDAPLoginManager(object):
         # sorted, this is not necessarily true. Sort the list of options so that if OPT_X_TLS_NEWCTX
         # is present, it is applied last.
         options = self.config.get('OPTIONS', {}).items()
-        options.sort(key=lambda x: x[0] == 'OPT_X_TLS_NEWCTX')
+        option = sorted(options, key=lambda x: x[0] == 'OPT_X_TLS_NEWCTX')
 
         for opt, value in options:
             if isinstance(opt, str):
